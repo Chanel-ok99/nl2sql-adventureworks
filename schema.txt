@@ -1,0 +1,63 @@
+TABLE : FactInternetSales (table de faits — une ligne par vente)
+  - ProductKey (int) — clé vers DimProduct
+  - OrderDateKey (int) — clé vers DimDate (date de commande)
+  - CustomerKey (int) — clé vers DimCustomer
+  - SalesTerritoryKey (int) — clé vers DimSalesTerritory
+  - SalesOrderNumber (nvarchar)
+  - OrderQuantity (smallint)
+  - UnitPrice (money)
+  - SalesAmount (money) — montant de la vente
+  - TotalProductCost (money)
+  - TaxAmt (money)
+  - Freight (money)
+  - OrderDate (datetime)
+
+TABLE : DimCustomer
+  - CustomerKey (int)
+  - FirstName (nvarchar)
+  - LastName (nvarchar)
+  - Gender (nvarchar)
+  - YearlyIncome (money)
+  - MaritalStatus (nchar)
+  - TotalChildren (tinyint)
+  - EnglishOccupation (nvarchar) — profession
+  - NumberCarsOwned (tinyint)
+
+TABLE : DimProduct
+  - ProductKey (int)
+  - EnglishProductName (nvarchar) — nom du produit
+  - ProductSubcategoryKey (int) — clé vers DimProductSubcategory
+  - Color (nvarchar)
+  - ListPrice (money)
+  - StandardCost (money)
+
+TABLE : DimProductSubcategory
+  - ProductSubcategoryKey (int)
+  - EnglishProductSubcategoryName (nvarchar)
+  - ProductCategoryKey (int) — clé vers DimProductCategory
+
+TABLE : DimProductCategory
+  - ProductCategoryKey (int)
+  - EnglishProductCategoryName (nvarchar) — ex : Bikes, Accessories
+
+TABLE : DimDate
+  - DateKey (int)
+  - FullDateAlternateKey (date)
+  - EnglishMonthName (nvarchar)
+  - MonthNumberOfYear (tinyint)
+  - CalendarQuarter (tinyint)
+  - CalendarYear (smallint)
+
+TABLE : DimSalesTerritory
+  - SalesTerritoryKey (int)
+  - SalesTerritoryRegion (nvarchar)
+  - SalesTerritoryCountry (nvarchar)
+  - SalesTerritoryGroup (nvarchar)
+
+RELATIONS :
+  FactInternetSales.ProductKey → DimProduct.ProductKey
+  FactInternetSales.OrderDateKey → DimDate.DateKey
+  FactInternetSales.CustomerKey → DimCustomer.CustomerKey
+  FactInternetSales.SalesTerritoryKey → DimSalesTerritory.SalesTerritoryKey
+  DimProduct.ProductSubcategoryKey → DimProductSubcategory.ProductSubcategoryKey
+  DimProductSubcategory.ProductCategoryKey → DimProductCategory.ProductCategoryKey
