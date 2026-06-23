@@ -15,8 +15,6 @@ DATABASE = 'AdventureWorksDW2022'
 
 
 def generer_sql(question, sql_precedent=None, erreur_precedente=None):
-    """Envoie la question + le schéma à Groq (Llama 3.3 70B), renvoie le SQL généré."""
-
     consigne_correction = ""
     if sql_precedent and erreur_precedente:
         consigne_correction = f"""
@@ -34,10 +32,38 @@ Corrige la requête pour éviter cette erreur précise.
 
 {SCHEMA}
 
-Règles strictes à respecter :
+RÈGLES STRICTES :
 - Génère UNIQUEMENT la requête SQL Server, sans explication, sans markdown
-- Si tu utilises GROUP BY sur une colonne, cette colonne DOIT obligatoirement apparaître dans le SELECT
-- Utilise des alias de colonnes clairs (AS) pour que chaque résultat soit compréhensible
+- Si tu utilises GROUP BY sur une colonne, cette colonne DOIT apparaître dans le SELECT
+- Utilise des alias clairs (AS) sur chaque colonne de résultat
+- INTERDIT absolument dans SELECT et GROUP BY : DateKey, FullDateAlternateKey, OrderDate, OrderDateKey. Pour les périodes, utilise UNIQUEMENT : CalendarYear (année), CalendarQuarter (trimestre), MonthNumberOfYear (numéro du mois), EnglishMonthName (nom du mois)
+
+EXEMPLES :
+Question : "Quel est le revenu total par année ?"
+SQL correct :
+SELECT D.CalendarYear AS Annee, SUM(F.SalesAmount) AS RevenuTotal
+FROM FactInternetSales F
+INNER JOIN DimDate D ON F.OrderDateKey = D.DateKey
+GROUP BY D.CalendarYear
+ORDER BY D.CalendarYear
+
+Question : "Quel est le CA par trimestre en 2013 ?"
+SQL correct :
+SELECT D.CalendarQuarter AS Trimestre, SUM(F.SalesAmount) AS CA
+FROM FactInternetSales F
+INNER JOIN DimDate D ON F.OrderDateKey = D.DateKey
+WHERE D.CalendarYear = 2013
+GROUP BY D.CalendarQuarter
+ORDER BY D.CalendarQuarter
+
+Question : "Quel mois a généré le plus de ventes en 2013 ?"
+SQL correct :
+SELECT TOP 1 D.EnglishMonthName AS Mois, SUM(F.SalesAmount) AS TotalVentes
+FROM FactInternetSales F
+INNER JOIN DimDate D ON F.OrderDateKey = D.DateKey
+WHERE D.CalendarYear = 2013
+GROUP BY D.EnglishMonthName, D.MonthNumberOfYear
+ORDER BY TotalVentes DESC
 
 {consigne_correction}
 
@@ -51,14 +77,12 @@ Question : {question}
 
 
 def nettoyer_sql(texte):
-    """Retire les balises markdown ```sql ... ``` autour du code."""
     texte = re.sub(r"```sql", "", texte)
     texte = re.sub(r"```", "", texte)
     return texte.strip()
 
 
 def executer_sql(sql_query):
-    """Exécute la requête sur SQL Server et renvoie (colonnes, lignes)."""
     connection_string = (
         f'DRIVER={{ODBC Driver 17 for SQL Server}};'
         f'SERVER={SERVER};'
@@ -74,9 +98,23 @@ def executer_sql(sql_query):
     return columns, rows
 
 
-def executer_avec_retry(question, max_tentatives=2):
-    """Génère et exécute le SQL, avec auto-correction en cas d'erreur."""
 
+def valider_semantique(sql_query):
+    sql_up = sql_query.upper()
+    if "FULLDATEALTERNATEKEY" in sql_up:
+        return ("INTERDIT : FullDateAlternateKey est interdit. "
+                "Utilise CalendarYear (annee), CalendarQuarter (trimestre), "
+                "MonthNumberOfYear (numero mois), EnglishMonthName (nom mois).")
+    if "GROUP BY" in sql_up:
+        apres = sql_up.split("GROUP BY", 1)[1]
+        apres = apres.split("ORDER BY")[0] if "ORDER BY" in apres else apres
+        if "DATEKEY" in apres:
+            return ("INTERDIT : DateKey dans GROUP BY est interdit. "
+                    "C est une cle technique YYYYMMDD. "
+                    "Utilise CalendarYear pour grouper par annee.")
+    return None
+
+def executer_avec_retry(question, max_tentatives=2):
     sql_precedent = None
     erreur_precedente = None
 
@@ -94,6 +132,15 @@ def executer_avec_retry(question, max_tentatives=2):
             }
 
         sql_query = nettoyer_sql(sql_brut)
+
+        erreur_sem = valider_semantique(sql_query)
+        if erreur_sem:
+            sql_precedent = sql_query
+            erreur_precedente = erreur_sem
+            if tentative == max_tentatives:
+                return {"sql": sql_query, "colonnes": None, "lignes": None,
+                        "tentatives": tentative, "succes": False, "erreur": erreur_sem}
+            continue
 
         try:
             columns, rows = executer_sql(sql_query)
@@ -121,7 +168,6 @@ def executer_avec_retry(question, max_tentatives=2):
 
 
 def poser_question(question):
-    """Pipeline complet avec affichage détaillé, utilisé en mode interactif."""
     print(f"\n{'='*60}")
     print(f"QUESTION : {question}")
     print('='*60)
@@ -138,7 +184,7 @@ def poser_question(question):
             print(" | ".join(str(v) for v in row))
         print(f"\n({len(resultat['lignes'])} ligne(s) au total)")
         if resultat["tentatives"] > 1:
-            print(f"⚠️ Correction automatique nécessaire ({resultat['tentatives']} tentatives)")
+            print(f"⚠️ Correction automatique ({resultat['tentatives']} tentatives)")
     else:
         print(f"❌ Échec après {resultat['tentatives']} tentatives : {resultat['erreur']}")
 

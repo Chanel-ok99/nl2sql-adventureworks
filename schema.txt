@@ -61,3 +61,9 @@ RELATIONS :
   FactInternetSales.SalesTerritoryKey → DimSalesTerritory.SalesTerritoryKey
   DimProduct.ProductSubcategoryKey → DimProductSubcategory.ProductSubcategoryKey
   DimProductSubcategory.ProductCategoryKey → DimProductCategory.ProductCategoryKey
+  NOTE IMPORTANTE POUR LES AGRÉGATIONS TEMPORELLES :
+- Pour grouper par ANNÉE → utiliser DimDate.CalendarYear (jointure via OrderDateKey → DateKey)
+- Pour grouper par TRIMESTRE → utiliser DimDate.CalendarQuarter
+- Pour grouper par MOIS → utiliser DimDate.MonthNumberOfYear ou EnglishMonthName
+- Ne jamais utiliser OrderDate directement pour des agrégations par période
+- Toujours joindre FactInternetSales avec DimDate via OrderDateKey = DateKey

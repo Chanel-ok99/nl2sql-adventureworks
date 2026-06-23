@@ -23,7 +23,6 @@ question = st.text_input(
 submit = st.button("🔍 Poser la question", type="primary")
 
 if submit and question.strip():
-
     with st.spinner("Génération de la requête SQL en cours..."):
         resultat = executer_avec_retry(question)
 
@@ -43,16 +42,39 @@ if submit and question.strip():
         st.dataframe(df, use_container_width=True)
         st.caption(f"{len(df)} ligne(s) retournée(s)")
 
-        if len(df.columns) == 2:
-            col_texte = df.columns[0]
-            col_num = df.columns[1]
-            try:
-                df[col_num] = pd.to_numeric(df[col_num], errors="coerce")
-            except Exception:
-                pass
-            if pd.api.types.is_numeric_dtype(df[col_num]) and len(df) <= 30:
+        # Graphique automatique si exactement 2 colonnes
+        if len(df.columns) == 2 and len(df) <= 30:
+            df_chart = df.copy()
+
+            # Convertir toutes les colonnes en float si possible
+            convertibles = []
+            for col in df_chart.columns:
+                try:
+                    df_chart[col] = df_chart[col].apply(float)
+                    convertibles.append(col)
+                except Exception:
+                    pass
+
+            if len(convertibles) == 1:
+                # 1 colonne texte + 1 colonne numérique
+                col_num = convertibles[0]
+                col_texte = [c for c in df_chart.columns if c != col_num][0]
+            elif len(convertibles) == 2:
+                # 2 colonnes numériques (ex: Annee + Revenu)
+                # → celle avec le plus grand max = la valeur à afficher
+                if df_chart[df_chart.columns[0]].max() >= df_chart[df_chart.columns[1]].max():
+                    col_num = df_chart.columns[0]
+                    col_texte = df_chart.columns[1]
+                else:
+                    col_num = df_chart.columns[1]
+                    col_texte = df_chart.columns[0]
+            else:
+                col_num = None
+                col_texte = None
+
+            if col_num and col_texte:
                 st.subheader("📈 Visualisation")
-                st.bar_chart(df.set_index(col_texte)[col_num])
+                st.bar_chart(df_chart.set_index(col_texte)[col_num])
 
     else:
         st.error(f"❌ Erreur : {resultat['erreur']}")
