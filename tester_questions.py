@@ -3,12 +3,31 @@ import json
 from nl2sql import executer_avec_retry
 from questions_test import QUESTIONS_TEST
 
-resultats = []
+# Charger les résultats déjà sauvegardés (pour reprendre sans refaire ce qui est fait)
+try:
+    with open("resultats_test.json", "r", encoding="utf-8") as f:
+        resultats = json.load(f)
+    ids_deja_faits = {r["id"] for r in resultats if r["statut"] == "succes"}
+    print(f"Reprise : {len(ids_deja_faits)} question(s) déjà réussie(s), on continue.")
+except FileNotFoundError:
+    resultats = []
+    ids_deja_faits = set()
+
+
+def sauvegarder():
+    with open("resultats_test.json", "w", encoding="utf-8") as f:
+        json.dump(resultats, f, ensure_ascii=False, indent=2)
+
 
 for item in QUESTIONS_TEST:
     qid = item["id"]
     categorie = item["categorie"]
     question = item["question"]
+
+    # Passer les questions déjà réussies
+    if qid in ids_deja_faits:
+        print(f"[{qid}] Déjà réussie, on passe.")
+        continue
 
     print(f"\n{'='*60}")
     print(f"[{qid}] ({categorie}) {question}")
@@ -34,7 +53,16 @@ for item in QUESTIONS_TEST:
         "erreur": resultat["erreur"]
     })
 
-    time.sleep(6)  # pause pour respecter les quotas Gemini
+    sauvegarder()  # sauvegarde après chaque question
+
+    # Arrêt propre si quota épuisé
+    if resultat["erreur"] and "rate_limit_exceeded" in str(resultat["erreur"]):
+        print("\n⚠️ Quota API épuisé. Arrêt propre.")
+        print("   Relance ce script demain pour continuer automatiquement.")
+        break
+
+    time.sleep(6)
+
 
 # --- Résumé final ---
 print("\n\n" + "=" * 60)
@@ -65,7 +93,4 @@ if echecs:
         print(f"  [{r['id']}] {r['question']}")
         print(f"      → {r['erreur']}")
 
-with open("resultats_test.json", "w", encoding="utf-8") as f:
-    json.dump(resultats, f, ensure_ascii=False, indent=2)
-
-print("\n💾 Résultats sauvegardés dans resultats_test.json")
+print(f"\n💾 {len(resultats)} résultat(s) sauvegardé(s) dans resultats_test.json")

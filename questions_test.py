@@ -1,32 +1,59 @@
-# Jeu de test : 20 questions de complexité croissante
-# Catégories : simple, classement, temporel, complexe
-
 QUESTIONS_TEST = [
-    # --- Catégorie 1 : Agrégations simples ---
-    {"id": 1, "categorie": "simple", "question": "Quel est le chiffre d'affaires total ?"},
-    {"id": 2, "categorie": "simple", "question": "Combien de commandes ont été passées au total ?"},
-    {"id": 3, "categorie": "simple", "question": "Quel est le prix moyen des produits ?"},
-    {"id": 4, "categorie": "simple", "question": "Quel est le revenu total par pays ?"},
-    {"id": 5, "categorie": "simple", "question": "Quelle est la quantité totale de produits vendus ?"},
+    # --- Simple (1-10) ---
+    {"id": 1,  "categorie": "simple", "question": "Quel est le chiffre d'affaires total ?"},
+    {"id": 2,  "categorie": "simple", "question": "Combien de commandes ont été passées au total ?"},
+    {"id": 3,  "categorie": "simple", "question": "Quel est le prix moyen des produits ?"},
+    {"id": 4,  "categorie": "simple", "question": "Quel est le revenu total par pays ?"},
+    {"id": 5,  "categorie": "simple", "question": "Quelle est la quantité totale de produits vendus ?"},
+    {"id": 6,  "categorie": "simple", "question": "Combien y a-t-il de clients distincts ?"},
+    {"id": 7,  "categorie": "simple", "question": "Quel est le montant total des taxes collectées ?"},
+    {"id": 8,  "categorie": "simple", "question": "Combien de produits différents ont été vendus ?"},
+    {"id": 9,  "categorie": "simple", "question": "Quel est le chiffre d'affaires total par région de vente ?"},
+    {"id": 10, "categorie": "simple", "question": "Quel est le coût total des produits vendus ?"},
 
-    # --- Catégorie 2 : Classement / TOP N ---
-    {"id": 6, "categorie": "classement", "question": "Quels sont les 5 produits les plus vendus en quantité ?"},
-    {"id": 7, "categorie": "classement", "question": "Quels sont les 3 pays générant le plus de chiffre d'affaires ?"},
-    {"id": 8, "categorie": "classement", "question": "Quel est le produit le plus cher du catalogue ?"},
-    {"id": 9, "categorie": "classement", "question": "Quels sont les 10 clients ayant dépensé le plus ?"},
-    {"id": 10, "categorie": "classement", "question": "Quelle est la catégorie de produit la plus vendue ?"},
+    # --- Classement (11-20) ---
+    {"id": 11, "categorie": "classement", "question": "Quels sont les 5 produits les plus vendus en quantité ?"},
+    {"id": 12, "categorie": "classement", "question": "Quels sont les 3 pays générant le plus de chiffre d'affaires ?"},
+    {"id": 13, "categorie": "classement", "question": "Quel est le produit le plus cher du catalogue ?"},
+    {"id": 14, "categorie": "classement", "question": "Quels sont les 10 clients ayant dépensé le plus ?"},
+    {"id": 15, "categorie": "classement", "question": "Quelle est la catégorie de produit la plus vendue ?"},
+    {"id": 16, "categorie": "classement", "question": "Quels sont les 5 produits les moins vendus ?"},
+    {"id": 17, "categorie": "classement", "question": "Quel est le pays avec le panier moyen le plus élevé ?"},
+    {"id": 18, "categorie": "classement", "question": "Quels sont les 3 groupes de territoire avec le plus de ventes ?"},
+    {"id": 19, "categorie": "classement", "question": "Quel est le produit ayant généré le plus de chiffre d'affaires ?"},
+    {"id": 20, "categorie": "classement", "question": "Quels sont les 5 clients ayant passé le plus de commandes ?"},
 
-    # --- Catégorie 3 : Filtres temporels ---
-    {"id": 11, "categorie": "temporel", "question": "Quel est le chiffre d'affaires total en 2013 ?"},
-    {"id": 12, "categorie": "temporel", "question": "Quel est le revenu total par année ?"},
-    {"id": 13, "categorie": "temporel", "question": "Quel est le chiffre d'affaires par trimestre en 2013 ?"},
-    {"id": 14, "categorie": "temporel", "question": "Combien de commandes ont été passées en 2012 ?"},
-    {"id": 15, "categorie": "temporel", "question": "Quel mois a généré le plus de ventes en 2013 ?"},
+    # --- Temporel (21-35) ---
+    {"id": 21, "categorie": "temporel", "question": "Quel est le chiffre d'affaires total en 2013 ?"},
+    {"id": 22, "categorie": "temporel", "question": "Quel est le revenu total par année ?"},
+    {"id": 23, "categorie": "temporel", "question": "Quel est le chiffre d'affaires par trimestre en 2013 ?"},
+    {"id": 24, "categorie": "temporel", "question": "Combien de commandes ont été passées en 2012 ?"},
+    {"id": 25, "categorie": "temporel", "question": "Quel mois a généré le plus de ventes en 2013 ?"},
+    {"id": 26, "categorie": "temporel", "question": "Quel est le chiffre d'affaires par trimestre sur toutes les années ?"},
+    {"id": 27, "categorie": "temporel", "question": "Quelle année a généré le plus de revenus ?"},
+    {"id": 28, "categorie": "temporel", "question": "Quel est le chiffre d'affaires mensuel en 2012 ?"},
+    {"id": 29, "categorie": "temporel", "question": "Combien de produits ont été vendus en 2011 ?"},
+    {"id": 30, "categorie": "temporel", "question": "Quel est le revenu total par année et par pays ?"},
+    {"id": 31, "categorie": "temporel", "question": "Quel trimestre de 2012 a généré le plus de ventes ?"},
+    {"id": 32, "categorie": "temporel", "question": "Quel est le chiffre d'affaires total en 2011 et 2012 combinés ?"},
+    {"id": 33, "categorie": "temporel", "question": "Quelle est l'évolution du chiffre d'affaires par année ?"},
+    {"id": 34, "categorie": "temporel", "question": "Quel mois a le plus de commandes sur toute la période ?"},
+    {"id": 35, "categorie": "temporel", "question": "Quel est le revenu moyen par année ?"},
 
-    # --- Catégorie 4 : Questions complexes (plusieurs jointures / conditions) ---
-    {"id": 16, "categorie": "complexe", "question": "Quel est le chiffre d'affaires par catégorie de produit et par pays ?"},
-    {"id": 17, "categorie": "complexe", "question": "Quels sont les clients ayant dépensé plus de 5000 au total ?"},
-    {"id": 18, "categorie": "complexe", "question": "Quelle est la marge moyenne (prix de vente moins coût) par catégorie de produit ?"},
-    {"id": 19, "categorie": "complexe", "question": "Quel est le revenu moyen par commande, par pays ?"},
-    {"id": 20, "categorie": "complexe", "question": "Quels produits n'ont jamais été vendus ?"},
+    # --- Complexe (36-50) ---
+    {"id": 36, "categorie": "complexe", "question": "Quel est le chiffre d'affaires par catégorie de produit et par pays ?"},
+    {"id": 37, "categorie": "complexe", "question": "Quels sont les clients ayant dépensé plus de 5000 au total ?"},
+    {"id": 38, "categorie": "complexe", "question": "Quelle est la marge moyenne (prix de vente moins coût) par catégorie de produit ?"},
+    {"id": 39, "categorie": "complexe", "question": "Quel est le revenu moyen par commande, par pays ?"},
+    {"id": 40, "categorie": "complexe", "question": "Quels produits n'ont jamais été vendus ?"},
+    {"id": 41, "categorie": "complexe", "question": "Quel est le chiffre d'affaires par sous-catégorie de produit ?"},
+    {"id": 42, "categorie": "complexe", "question": "Quels clients ont acheté des produits de toutes les catégories ?"},
+    {"id": 43, "categorie": "complexe", "question": "Quel est le revenu total par catégorie et par année ?"},
+    {"id": 44, "categorie": "complexe", "question": "Quelle est la quantité moyenne commandée par pays ?"},
+    {"id": 45, "categorie": "complexe", "question": "Quels sont les produits vendus uniquement en 2013 ?"},
+    {"id": 46, "categorie": "complexe", "question": "Quel est le chiffre d'affaires par groupe de territoire et par année ?"},
+    {"id": 47, "categorie": "complexe", "question": "Quels clients ont dépensé plus que la moyenne des clients ?"},
+    {"id": 48, "categorie": "complexe", "question": "Quel est le nombre de commandes par catégorie de produit ?"},
+    {"id": 49, "categorie": "complexe", "question": "Quelle sous-catégorie a la marge unitaire la plus élevée ?"},
+    {"id": 50, "categorie": "complexe", "question": "Quel est le top 5 des produits par revenu pour chaque pays ?"},
 ]
