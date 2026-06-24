@@ -213,290 +213,290 @@
     "id": 22,
     "categorie": "temporel",
     "question": "Quel est le revenu total par année ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT D.CalendarYear AS Annee, SUM(F.SalesAmount) AS RevenuTotal\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nGROUP BY D.CalendarYear\nORDER BY D.CalendarYear",
+    "statut": "succes",
+    "nb_lignes": 5,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99337, Requested 1214. Please try again in 7m56.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 23,
     "categorie": "temporel",
     "question": "Quel est le chiffre d'affaires par trimestre en 2013 ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT D.CalendarQuarter AS Trimestre, SUM(F.SalesAmount) AS ChiffreAffaires\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2013\nGROUP BY D.CalendarQuarter\nORDER BY D.CalendarQuarter",
+    "statut": "succes",
+    "nb_lignes": 4,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99330, Requested 1189. Please try again in 7m28.416s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 24,
     "categorie": "temporel",
     "question": "Combien de commandes ont été passées en 2012 ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT D.CalendarYear AS Annee, COUNT(F.SalesOrderNumber) AS NombreCommandes\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2012\nGROUP BY D.CalendarYear\nORDER BY D.CalendarYear",
+    "statut": "succes",
+    "nb_lignes": 1,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99323, Requested 1184. Please try again in 7m18.048s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 25,
     "categorie": "temporel",
     "question": "Quel mois a généré le plus de ventes en 2013 ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT TOP 1 D.EnglishMonthName AS Mois, SUM(F.SalesAmount) AS TotalVentes\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2013\nGROUP BY D.EnglishMonthName, D.MonthNumberOfYear\nORDER BY TotalVentes DESC",
+    "statut": "succes",
+    "nb_lignes": 1,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99316, Requested 1220. Please try again in 7m43.104s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 26,
     "categorie": "temporel",
     "question": "Quel est le chiffre d'affaires par trimestre sur toutes les années ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT D.CalendarYear AS Annee, D.CalendarQuarter AS Trimestre, SUM(F.SalesAmount) AS ChiffreDAffaires\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nGROUP BY D.CalendarYear, D.CalendarQuarter\nORDER BY D.CalendarYear, D.CalendarQuarter",
+    "statut": "succes",
+    "nb_lignes": 14,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99309, Requested 1221. Please try again in 7m37.92s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 27,
     "categorie": "temporel",
     "question": "Quelle année a généré le plus de revenus ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT TOP 1 D.CalendarYear AS Annee, SUM(F.SalesAmount) AS RevenuTotal\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nGROUP BY D.CalendarYear\nORDER BY RevenuTotal DESC",
+    "statut": "succes",
+    "nb_lignes": 1,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99301, Requested 1216. Please try again in 7m26.688s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 28,
     "categorie": "temporel",
     "question": "Quel est le chiffre d'affaires mensuel en 2012 ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT D.EnglishMonthName AS Mois, SUM(F.SalesAmount) AS CA\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2012\nGROUP BY D.EnglishMonthName, D.MonthNumberOfYear\nORDER BY D.MonthNumberOfYear",
+    "statut": "succes",
+    "nb_lignes": 12,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99294, Requested 1220. Please try again in 7m24.095999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 29,
     "categorie": "temporel",
     "question": "Combien de produits ont été vendus en 2011 ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT SUM(F.OrderQuantity) AS QuantiteVendue\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2011",
+    "statut": "succes",
+    "nb_lignes": 1,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99287, Requested 1217. Please try again in 7m15.456s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 30,
     "categorie": "temporel",
     "question": "Quel est le revenu total par année et par pays ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT D.CalendarYear AS Annee, ST.SalesTerritoryCountry AS Pays, SUM(F.SalesAmount) AS RevenuTotal\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nINNER JOIN DimSalesTerritory ST ON F.SalesTerritoryKey = ST.SalesTerritoryKey\nGROUP BY D.CalendarYear, ST.SalesTerritoryCountry\nORDER BY D.CalendarYear, ST.SalesTerritoryCountry",
+    "statut": "succes",
+    "nb_lignes": 29,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99280, Requested 1185. Please try again in 6m41.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 31,
     "categorie": "temporel",
     "question": "Quel trimestre de 2012 a généré le plus de ventes ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT TOP 1 D.CalendarQuarter AS Trimestre, SUM(F.SalesAmount) AS TotalVentes\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2012\nGROUP BY D.CalendarQuarter\nORDER BY TotalVentes DESC",
+    "statut": "succes",
+    "nb_lignes": 1,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99273, Requested 1189. Please try again in 6m39.168s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 32,
     "categorie": "temporel",
     "question": "Quel est le chiffre d'affaires total en 2011 et 2012 combinés ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT SUM(F.SalesAmount) AS CA_Total\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear IN (2011, 2012)",
+    "statut": "succes",
+    "nb_lignes": 1,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99266, Requested 1225. Please try again in 7m4.224s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 33,
     "categorie": "temporel",
     "question": "Quelle est l'évolution du chiffre d'affaires par année ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT D.CalendarYear AS Annee, SUM(F.SalesAmount) AS ChiffreDAffaires\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nGROUP BY D.CalendarYear\nORDER BY D.CalendarYear",
+    "statut": "succes",
+    "nb_lignes": 5,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99259, Requested 1219. Please try again in 6m52.992s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 34,
     "categorie": "temporel",
     "question": "Quel mois a le plus de commandes sur toute la période ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT TOP 1 D.EnglishMonthName AS Mois, COUNT(F.SalesOrderNumber) AS NombreCommandes\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nGROUP BY D.EnglishMonthName, D.MonthNumberOfYear\nORDER BY NombreCommandes DESC",
+    "statut": "succes",
+    "nb_lignes": 1,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99251, Requested 1219. Please try again in 6m46.08s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 35,
     "categorie": "temporel",
     "question": "Quel est le revenu moyen par année ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT D.CalendarYear AS Annee, AVG(F.SalesAmount) AS RevenuMoyen\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nGROUP BY D.CalendarYear\nORDER BY D.CalendarYear",
+    "statut": "succes",
+    "nb_lignes": 5,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99244, Requested 1214. Please try again in 6m35.712s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 36,
     "categorie": "complexe",
     "question": "Quel est le chiffre d'affaires par catégorie de produit et par pays ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT \n  PC.EnglishProductCategoryName AS CategorieProduit, \n  ST.SalesTerritoryCountry AS Pays, \n  SUM(FIS.SalesAmount) AS ChiffreAffaires\nFROM \n  FactInternetSales FIS\nINNER JOIN \n  DimProduct DP ON FIS.ProductKey = DP.ProductKey\nINNER JOIN \n  DimProductSubcategory DPS ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey\nINNER JOIN \n  DimProductCategory PC ON DPS.ProductCategoryKey = PC.ProductCategoryKey\nINNER JOIN \n  DimSalesTerritory ST ON FIS.SalesTerritoryKey = ST.SalesTerritoryKey\nINNER JOIN \n  DimDate D ON FIS.OrderDateKey = D.DateKey\nGROUP BY \n  PC.EnglishProductCategoryName, \n  ST.SalesTerritoryCountry\nORDER BY \n  PC.EnglishProductCategoryName, \n  ST.SalesTerritoryCountry",
+    "statut": "succes",
+    "nb_lignes": 18,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99237, Requested 1222. Please try again in 6m36.576s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 37,
     "categorie": "complexe",
     "question": "Quels sont les clients ayant dépensé plus de 5000 au total ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT DC.FirstName AS Prenom, DC.LastName AS Nom, SUM(F.SalesAmount) AS DepenseTotale\nFROM FactInternetSales F\nINNER JOIN DimCustomer DC ON F.CustomerKey = DC.CustomerKey\nGROUP BY DC.FirstName, DC.LastName\nHAVING SUM(F.SalesAmount) > 5000\nORDER BY DepenseTotale DESC",
+    "statut": "succes",
+    "nb_lignes": 1740,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99230, Requested 1189. Please try again in 6m2.016s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 38,
     "categorie": "complexe",
     "question": "Quelle est la marge moyenne (prix de vente moins coût) par catégorie de produit ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT \n  DPC.EnglishProductCategoryName AS CategorieProduit, \n  AVG(F.UnitPrice - DP.StandardCost) AS MargeMoyenne\nFROM \n  FactInternetSales F\n  INNER JOIN DimProduct DP ON F.ProductKey = DP.ProductKey\n  INNER JOIN DimProductSubcategory DPS ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey\n  INNER JOIN DimProductCategory DPC ON DPS.ProductCategoryKey = DPC.ProductCategoryKey\nGROUP BY \n  DPC.EnglishProductCategoryName\nORDER BY \n  DPC.EnglishProductCategoryName",
+    "statut": "succes",
+    "nb_lignes": 3,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99223, Requested 1226. Please try again in 6m27.936s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 39,
     "categorie": "complexe",
     "question": "Quel est le revenu moyen par commande, par pays ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT DST.SalesTerritoryCountry AS Pays, AVG(F.SalesAmount) AS RevenuMoyenParCommande\nFROM FactInternetSales F\nINNER JOIN DimSalesTerritory DST ON F.SalesTerritoryKey = DST.SalesTerritoryKey\nGROUP BY DST.SalesTerritoryCountry\nORDER BY RevenuMoyenParCommande DESC",
+    "statut": "succes",
+    "nb_lignes": 6,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99215, Requested 1185. Please try again in 5m45.6s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 40,
     "categorie": "complexe",
     "question": "Quels produits n'ont jamais été vendus ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT P.EnglishProductName AS NomProduit\nFROM DimProduct P\nLEFT JOIN FactInternetSales F ON P.ProductKey = F.ProductKey\nWHERE F.ProductKey IS NULL",
+    "statut": "succes",
+    "nb_lignes": 448,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99208, Requested 1215. Please try again in 6m5.472s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 41,
     "categorie": "complexe",
     "question": "Quel est le chiffre d'affaires par sous-catégorie de produit ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT \n  DPCM.EnglishProductSubcategoryName AS SousCategorie,\n  SUM(FIS.SalesAmount) AS ChiffreAffaires\nFROM \n  FactInternetSales FIS\n  INNER JOIN DimProduct DP ON FIS.ProductKey = DP.ProductKey\n  INNER JOIN DimProductSubcategory DPCM ON DP.ProductSubcategoryKey = DPCM.ProductSubcategoryKey\nGROUP BY \n  DPCM.EnglishProductSubcategoryName\nORDER BY \n  ChiffreAffaires DESC",
+    "statut": "succes",
+    "nb_lignes": 17,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99201, Requested 1186. Please try again in 5m34.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 42,
     "categorie": "complexe",
     "question": "Quels clients ont acheté des produits de toutes les catégories ?",
-    "sql": null,
-    "statut": "echec",
+    "sql": "SELECT DISTINCT DC.FirstName AS PrenomClient, DC.LastName AS NomClient\nFROM FactInternetSales F\nINNER JOIN DimProduct DP ON F.ProductKey = DP.ProductKey\nINNER JOIN DimProductSubcategory DPS ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey\nINNER JOIN DimProductCategory DPC ON DPS.ProductCategoryKey = DPC.ProductCategoryKey\nINNER JOIN DimCustomer DC ON F.CustomerKey = DC.CustomerKey\nGROUP BY DC.FirstName, DC.LastName, DC.CustomerKey\nHAVING COUNT(DISTINCT DPC.EnglishProductCategoryName) = (SELECT COUNT(EnglishProductCategoryName) FROM DimProductCategory)",
+    "statut": "succes",
     "nb_lignes": 0,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99190, Requested 1220. Please try again in 5m54.24s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 43,
     "categorie": "complexe",
     "question": "Quel est le revenu total par catégorie et par année ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT D.CalendarYear AS Annee, PC.EnglishProductCategoryName AS Categorie, SUM(F.SalesAmount) AS RevenuTotal\nFROM FactInternetSales F\nINNER JOIN DimProduct P ON F.ProductKey = P.ProductKey\nINNER JOIN DimProductSubcategory PS ON P.ProductSubcategoryKey = PS.ProductSubcategoryKey\nINNER JOIN DimProductCategory PC ON PS.ProductCategoryKey = PC.ProductCategoryKey\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nGROUP BY D.CalendarYear, PC.EnglishProductCategoryName\nORDER BY D.CalendarYear, PC.EnglishProductCategoryName",
+    "statut": "succes",
+    "nb_lignes": 10,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99183, Requested 1186. Please try again in 5m18.816s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 44,
     "categorie": "complexe",
     "question": "Quelle est la quantité moyenne commandée par pays ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT DST.SalesTerritoryCountry AS Pays, AVG(F.OrderQuantity) AS QuantiteMoyenneCommandee\nFROM FactInternetSales F\nINNER JOIN DimSalesTerritory DST ON F.SalesTerritoryKey = DST.SalesTerritoryKey\nGROUP BY DST.SalesTerritoryCountry\nORDER BY DST.SalesTerritoryCountry",
+    "statut": "succes",
+    "nb_lignes": 6,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99176, Requested 1217. Please try again in 5m39.552s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 45,
     "categorie": "complexe",
     "question": "Quels sont les produits vendus uniquement en 2013 ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT DISTINCT P.EnglishProductName AS NomProduit\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nINNER JOIN DimProduct P ON F.ProductKey = P.ProductKey\nWHERE D.CalendarYear = 2013\nAND P.ProductKey NOT IN (\n  SELECT F2.ProductKey\n  FROM FactInternetSales F2\n  INNER JOIN DimDate D2 ON F2.OrderDateKey = D2.DateKey\n  WHERE D2.CalendarYear <> 2013\n)",
+    "statut": "succes",
+    "nb_lignes": 27,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99169, Requested 1218. Please try again in 5m34.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 46,
     "categorie": "complexe",
     "question": "Quel est le chiffre d'affaires par groupe de territoire et par année ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT T.SalesTerritoryGroup AS GroupeTerritoire, D.CalendarYear AS Annee, SUM(F.SalesAmount) AS ChiffreAffaires\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nINNER JOIN DimSalesTerritory T ON F.SalesTerritoryKey = T.SalesTerritoryKey\nGROUP BY T.SalesTerritoryGroup, D.CalendarYear\nORDER BY T.SalesTerritoryGroup, D.CalendarYear",
+    "statut": "succes",
+    "nb_lignes": 15,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99162, Requested 1189. Please try again in 5m3.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 47,
     "categorie": "complexe",
     "question": "Quels clients ont dépensé plus que la moyenne des clients ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT C.FirstName AS Prenom, C.LastName AS Nom, SUM(F.SalesAmount) AS MontantDepense\nFROM FactInternetSales F\nINNER JOIN DimCustomer C ON F.CustomerKey = C.CustomerKey\nGROUP BY C.FirstName, C.LastName\nHAVING SUM(F.SalesAmount) > (SELECT AVG(TotalDepense) FROM (SELECT CustomerKey, SUM(SalesAmount) AS TotalDepense FROM FactInternetSales GROUP BY CustomerKey) AS T)\nORDER BY MontantDepense DESC",
+    "statut": "succes",
+    "nb_lignes": 6690,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99155, Requested 1185. Please try again in 4m53.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 48,
     "categorie": "complexe",
     "question": "Quel est le nombre de commandes par catégorie de produit ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT \n  DPC.EnglishProductCategoryName AS CategorieProduit,\n  COUNT(F.ProductKey) AS NombreCommandes\nFROM \n  FactInternetSales F\n  INNER JOIN DimProduct DP ON F.ProductKey = DP.ProductKey\n  INNER JOIN DimProductSubcategory DPS ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey\n  INNER JOIN DimProductCategory DPC ON DPS.ProductCategoryKey = DPC.ProductCategoryKey\nGROUP BY \n  DPC.EnglishProductCategoryName\nORDER BY \n  NombreCommandes DESC",
+    "statut": "succes",
+    "nb_lignes": 3,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99148, Requested 1218. Please try again in 5m16.224s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 49,
     "categorie": "complexe",
     "question": "Quelle sous-catégorie a la marge unitaire la plus élevée ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT PS.EnglishProductSubcategoryName AS SousCategorie, (SUM(F.SalesAmount) - SUM(F.TotalProductCost)) / SUM(F.OrderQuantity) AS MargeUnitaire\nFROM FactInternetSales F\nINNER JOIN DimProduct P ON F.ProductKey = P.ProductKey\nINNER JOIN DimProductSubcategory PS ON P.ProductSubcategoryKey = PS.ProductSubcategoryKey\nGROUP BY PS.EnglishProductSubcategoryName\nORDER BY MargeUnitaire DESC",
+    "statut": "succes",
+    "nb_lignes": 17,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99141, Requested 1189. Please try again in 4m45.12s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   },
   {
     "id": 50,
     "categorie": "complexe",
     "question": "Quel est le top 5 des produits par revenu pour chaque pays ?",
-    "sql": null,
-    "statut": "echec",
-    "nb_lignes": 0,
+    "sql": "SELECT TOP 5 DST.SalesTerritoryCountry AS Pays, DP.EnglishProductName AS NomProduit, SUM(FIS.SalesAmount) AS Revenu\nFROM FactInternetSales FIS\nINNER JOIN DimProduct DP ON FIS.ProductKey = DP.ProductKey\nINNER JOIN DimDate DD ON FIS.OrderDateKey = DD.DateKey\nINNER JOIN DimSalesTerritory DST ON FIS.SalesTerritoryKey = DST.SalesTerritoryKey\nGROUP BY DST.SalesTerritoryCountry, DP.EnglishProductName\nORDER BY Revenu DESC",
+    "statut": "succes",
+    "nb_lignes": 5,
     "tentatives": 1,
-    "erreur": "Erreur API : Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kvp2gc0af119a1k8c1k7nyy2` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99133, Requested 1188. Please try again in 4m37.344s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+    "erreur": null
   }
 ]
