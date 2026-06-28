@@ -1,0 +1,548 @@
+{
+  "1": [
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 1,
+      "categorie": "simple",
+      "question": "Quel est le chiffre d'affaires total ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 2,
+      "categorie": "simple",
+      "question": "Combien de commandes ont été passées au total ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 3,
+      "categorie": "simple",
+      "question": "Quel est le prix moyen des produits ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 4,
+      "categorie": "simple",
+      "question": "Quel est le revenu total par pays ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 5,
+      "categorie": "simple",
+      "question": "Quelle est la quantité totale de produits vendus ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 6,
+      "categorie": "classement",
+      "question": "Quels sont les 5 produits les plus vendus en quantité ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 7,
+      "categorie": "classement",
+      "question": "Quels sont les 3 pays générant le plus de chiffre d'affaires ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 8,
+      "categorie": "classement",
+      "question": "Quel est le produit le plus cher du catalogue ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 9,
+      "categorie": "classement",
+      "question": "Quels sont les 10 clients ayant dépensé le plus ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 10,
+      "categorie": "classement",
+      "question": "Quelle est la catégorie de produit la plus vendue ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 11,
+      "categorie": "temporel",
+      "question": "Quel est le chiffre d'affaires total en 2013 ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 12,
+      "categorie": "temporel",
+      "question": "Quel est le revenu total par année ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 13,
+      "categorie": "temporel",
+      "question": "Quel est le chiffre d'affaires par trimestre en 2013 ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 14,
+      "categorie": "temporel",
+      "question": "Combien de commandes ont été passées en 2012 ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 15,
+      "categorie": "temporel",
+      "question": "Quel mois a généré le plus de ventes en 2013 ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 16,
+      "categorie": "complexe",
+      "question": "Quel est le chiffre d'affaires par catégorie de produit et par pays ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 17,
+      "categorie": "complexe",
+      "question": "Quels sont les clients ayant dépensé plus de 5000 au total ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 18,
+      "categorie": "complexe",
+      "question": "Quelle est la marge moyenne par catégorie de produit ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 19,
+      "categorie": "complexe",
+      "question": "Quel est le revenu moyen par commande, par pays ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 20,
+      "categorie": "complexe",
+      "question": "Quels produits n'ont jamais été vendus ?"
+    }
+  ],
+  "2": [
+    {
+      "sql": "SELECT SUM(SalesAmount) AS CA_Total \nFROM FactInternetSales",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 1,
+      "categorie": "simple",
+      "question": "Quel est le chiffre d'affaires total ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 2,
+      "categorie": "simple",
+      "question": "Combien de commandes ont été passées au total ?"
+    },
+    {
+      "sql": "SELECT AVG(DP.ListPrice) AS PrixMoyen\nFROM DimProduct DP",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 3,
+      "categorie": "simple",
+      "question": "Quel est le prix moyen des produits ?"
+    },
+    {
+      "sql": "SELECT DST.SalesTerritoryCountry AS Pays, SUM(FIS.SalesAmount) AS RevenuTotal\nFROM FactInternetSales FIS\nINNER JOIN DimSalesTerritory DST ON FIS.SalesTerritoryKey = DST.SalesTerritoryKey\nGROUP BY DST.SalesTerritoryCountry ORDER BY RevenuTotal DESC",
+      "statut": "succes",
+      "nb_lignes": 6,
+      "tentatives": 1,
+      "id": 4,
+      "categorie": "simple",
+      "question": "Quel est le revenu total par pays ?"
+    },
+    {
+      "sql": "SELECT SUM(F.OrderQuantity) AS QuantiteTotale\nFROM FactInternetSales F",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 5,
+      "categorie": "simple",
+      "question": "Quelle est la quantité totale de produits vendus ?"
+    },
+    {
+      "sql": "SELECT TOP 5 DPE.EnglishProductName AS NomProduit, SUM(FIS.OrderQuantity) AS QuantiteVendue\nFROM FactInternetSales FIS\nINNER JOIN DimProduct DPE ON FIS.ProductKey = DPE.ProductKey\nGROUP BY DPE.EnglishProductName\nORDER BY QuantiteVendue DESC",
+      "statut": "succes",
+      "nb_lignes": 5,
+      "tentatives": 1,
+      "id": 6,
+      "categorie": "classement",
+      "question": "Quels sont les 5 produits les plus vendus en quantité ?"
+    },
+    {
+      "sql": "SELECT TOP 3 DST.SalesTerritoryCountry AS Pays, SUM(FIS.SalesAmount) AS CA\nFROM FactInternetSales FIS\nINNER JOIN DimSalesTerritory DST ON FIS.SalesTerritoryKey = DST.SalesTerritoryKey\nGROUP BY DST.SalesTerritoryCountry\nORDER BY CA DESC",
+      "statut": "succes",
+      "nb_lignes": 3,
+      "tentatives": 1,
+      "id": 7,
+      "categorie": "classement",
+      "question": "Quels sont les 3 pays générant le plus de chiffre d'affaires ?"
+    },
+    {
+      "sql": "SELECT DPP.EnglishProductName AS NomDuProduit, DPP.ListPrice AS Prix\nFROM DimProduct DPP\nORDER BY DPP.ListPrice DESC\nOFFSET 0 ROWS\nFETCH NEXT 1 ROW ONLY",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 8,
+      "categorie": "classement",
+      "question": "Quel est le produit le plus cher du catalogue ?"
+    },
+    {
+      "sql": "SELECT TOP 10 DC.FirstName AS Prenom, DC.LastName AS Nom, SUM(FIS.SalesAmount) AS MontantDepense\nFROM FactInternetSales FIS\nINNER JOIN DimCustomer DC ON FIS.CustomerKey = DC.CustomerKey\nGROUP BY DC.FirstName, DC.LastName\nORDER BY SUM(FIS.SalesAmount) DESC",
+      "statut": "succes",
+      "nb_lignes": 10,
+      "tentatives": 1,
+      "id": 9,
+      "categorie": "classement",
+      "question": "Quels sont les 10 clients ayant dépensé le plus ?"
+    },
+    {
+      "sql": "SELECT DPC.EnglishProductCategoryName AS CategorieProduit, SUM(FIS.OrderQuantity) AS QuantiteVendue\nFROM FactInternetSales FIS\nINNER JOIN DimProduct DP ON FIS.ProductKey = DP.ProductKey\nINNER JOIN DimProductSubcategory DPS ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey\nINNER JOIN DimProductCategory DPC ON DPS.ProductCategoryKey = DPC.ProductCategoryKey\nGROUP BY DPC.EnglishProductCategoryName\nORDER BY QuantiteVendue DESC",
+      "statut": "succes",
+      "nb_lignes": 3,
+      "tentatives": 1,
+      "id": 10,
+      "categorie": "classement",
+      "question": "Quelle est la catégorie de produit la plus vendue ?"
+    },
+    {
+      "sql": "SELECT SUM(F.SalesAmount) AS CA\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2013",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 11,
+      "categorie": "temporel",
+      "question": "Quel est le chiffre d'affaires total en 2013 ?"
+    },
+    {
+      "sql": "SELECT D.CalendarYear AS Annee, SUM(F.SalesAmount) AS RevenuTotal\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nGROUP BY D.CalendarYear \nORDER BY D.CalendarYear",
+      "statut": "succes",
+      "nb_lignes": 5,
+      "tentatives": 1,
+      "id": 12,
+      "categorie": "temporel",
+      "question": "Quel est le revenu total par année ?"
+    },
+    {
+      "sql": "SELECT D.CalendarQuarter AS Trimestre, SUM(F.SalesAmount) AS CA\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2013\nGROUP BY D.CalendarQuarter \nORDER BY D.CalendarQuarter",
+      "statut": "succes",
+      "nb_lignes": 4,
+      "tentatives": 1,
+      "id": 13,
+      "categorie": "temporel",
+      "question": "Quel est le chiffre d'affaires par trimestre en 2013 ?"
+    },
+    {
+      "sql": "SELECT COUNT(FIS.SalesOrderNumber) AS NombreDeCommandes\nFROM FactInternetSales FIS\nINNER JOIN DimDate D ON FIS.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2012",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 14,
+      "categorie": "temporel",
+      "question": "Combien de commandes ont été passées en 2012 ?"
+    },
+    {
+      "sql": "SELECT D.EnglishMonthName AS Mois, SUM(F.SalesAmount) AS Ventes\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2013\nGROUP BY D.EnglishMonthName\nORDER BY SUM(F.SalesAmount) DESC",
+      "statut": "succes",
+      "nb_lignes": 12,
+      "tentatives": 1,
+      "id": 15,
+      "categorie": "temporel",
+      "question": "Quel mois a généré le plus de ventes en 2013 ?"
+    },
+    {
+      "sql": "SELECT DPC.EnglishProductCategoryName AS Categorie, DST.SalesTerritoryCountry AS Pays, SUM(FIS.SalesAmount) AS CA\nFROM FactInternetSales FIS\nINNER JOIN DimProduct DP ON FIS.ProductKey = DP.ProductKey\nINNER JOIN DimProductSubcategory DPS ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey\nINNER JOIN DimProductCategory DPC ON DPS.ProductCategoryKey = DPC.ProductCategoryKey\nINNER JOIN DimSalesTerritory DST ON FIS.SalesTerritoryKey = DST.SalesTerritoryKey\nGROUP BY DPC.EnglishProductCategoryName, DST.SalesTerritoryCountry\nORDER BY DPC.EnglishProductCategoryName, DST.SalesTerritoryCountry",
+      "statut": "succes",
+      "nb_lignes": 18,
+      "tentatives": 1,
+      "id": 16,
+      "categorie": "complexe",
+      "question": "Quel est le chiffre d'affaires par catégorie de produit et par pays ?"
+    },
+    {
+      "sql": "SELECT DC.FirstName AS Prenom, DC.LastName AS Nom, SUM(FIS.SalesAmount) AS DepenseTotale\nFROM FactInternetSales FIS\nINNER JOIN DimCustomer DC ON FIS.CustomerKey = DC.CustomerKey\nGROUP BY DC.FirstName, DC.LastName\nHAVING SUM(FIS.SalesAmount) > 5000\nORDER BY DepenseTotale DESC",
+      "statut": "succes",
+      "nb_lignes": 1740,
+      "tentatives": 1,
+      "id": 17,
+      "categorie": "complexe",
+      "question": "Quels sont les clients ayant dépensé plus de 5000 au total ?"
+    },
+    {
+      "sql": "SELECT DPC.EnglishProductCategoryName AS Categorie, AVG(FIS.SalesAmount - FIS.TotalProductCost) / AVG(FIS.SalesAmount) AS MargeMoyenne\nFROM FactInternetSales FIS\nINNER JOIN DimProduct DP ON FIS.ProductKey = DP.ProductKey\nINNER JOIN DimProductSubcategory DPS ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey\nINNER JOIN DimProductCategory DPC ON DPS.ProductCategoryKey = DPC.ProductCategoryKey\nGROUP BY DPC.EnglishProductCategoryName ORDER BY MargeMoyenne DESC",
+      "statut": "succes",
+      "nb_lignes": 3,
+      "tentatives": 1,
+      "id": 18,
+      "categorie": "complexe",
+      "question": "Quelle est la marge moyenne par catégorie de produit ?"
+    },
+    {
+      "sql": "SELECT DST.SalesTerritoryCountry AS Pays, AVG(FIS.SalesAmount) AS RevenuMoyenParCommande\nFROM FactInternetSales FIS\nINNER JOIN DimSalesTerritory DST ON FIS.SalesTerritoryKey = DST.SalesTerritoryKey\nGROUP BY DST.SalesTerritoryCountry\nORDER BY RevenuMoyenParCommande DESC",
+      "statut": "succes",
+      "nb_lignes": 6,
+      "tentatives": 1,
+      "id": 19,
+      "categorie": "complexe",
+      "question": "Quel est le revenu moyen par commande, par pays ?"
+    },
+    {
+      "sql": "SELECT DP.EnglishProductName AS NomDuProduit\nFROM DimProduct DP\nLEFT JOIN FactInternetSales FIS ON DP.ProductKey = FIS.ProductKey\nWHERE FIS.ProductKey IS NULL",
+      "statut": "succes",
+      "nb_lignes": 448,
+      "tentatives": 1,
+      "id": 20,
+      "categorie": "complexe",
+      "question": "Quels produits n'ont jamais été vendus ?"
+    }
+  ],
+  "3": [
+    {
+      "sql": "SELECT SUM(F.SalesAmount) AS CA_total \nFROM FactInternetSales F",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 1,
+      "categorie": "simple",
+      "question": "Quel est le chiffre d'affaires total ?"
+    },
+    {
+      "sql": "SELECT COUNT(SalesOrderNumber) AS TotalCommandes\nFROM FactInternetSales",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 2,
+      "categorie": "simple",
+      "question": "Combien de commandes ont été passées au total ?"
+    },
+    {
+      "sql": "SELECT AVG(DP.ListPrice) AS PrixMoyen\nFROM DimProduct DP",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 3,
+      "categorie": "simple",
+      "question": "Quel est le prix moyen des produits ?"
+    },
+    {
+      "sql": "SELECT T.SalesTerritoryCountry AS Pays, SUM(F.SalesAmount) AS RevenuTotal\nFROM FactInternetSales F\nINNER JOIN DimSalesTerritory T ON F.SalesTerritoryKey = T.SalesTerritoryKey\nGROUP BY T.SalesTerritoryCountry\nORDER BY RevenuTotal DESC",
+      "statut": "succes",
+      "nb_lignes": 6,
+      "tentatives": 1,
+      "id": 4,
+      "categorie": "simple",
+      "question": "Quel est le revenu total par pays ?"
+    },
+    {
+      "sql": "SELECT SUM(F.OrderQuantity) AS QuantiteTotaleProduitsVendus\nFROM FactInternetSales F",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 5,
+      "categorie": "simple",
+      "question": "Quelle est la quantité totale de produits vendus ?"
+    },
+    {
+      "sql": "SELECT TOP 5 P.EnglishProductName AS NomProduit, SUM(F.OrderQuantity) AS QuantiteVendue\nFROM FactInternetSales F\nINNER JOIN DimProduct P ON F.ProductKey = P.ProductKey\nGROUP BY P.EnglishProductName\nORDER BY QuantiteVendue DESC",
+      "statut": "succes",
+      "nb_lignes": 5,
+      "tentatives": 1,
+      "id": 6,
+      "categorie": "classement",
+      "question": "Quels sont les 5 produits les plus vendus en quantité ?"
+    },
+    {
+      "sql": "SELECT TOP 3 T.SalesTerritoryCountry AS Pays, SUM(F.SalesAmount) AS CA\nFROM FactInternetSales F\nINNER JOIN DimSalesTerritory T ON F.SalesTerritoryKey = T.SalesTerritoryKey\nGROUP BY T.SalesTerritoryCountry\nORDER BY CA DESC",
+      "statut": "succes",
+      "nb_lignes": 3,
+      "tentatives": 1,
+      "id": 7,
+      "categorie": "classement",
+      "question": "Quels sont les 3 pays générant le plus de chiffre d'affaires ?"
+    },
+    {
+      "sql": null,
+      "statut": "echec: ('42000', \"[42000] [Microsoft][ODBC Driver 17 for SQL Server",
+      "nb_lignes": 0,
+      "tentatives": 1,
+      "id": 8,
+      "categorie": "classement",
+      "question": "Quel est le produit le plus cher du catalogue ?"
+    },
+    {
+      "sql": "SELECT TOP 10 C.FirstName AS Prenom, C.LastName AS Nom, SUM(F.SalesAmount) AS DepenseTotale\nFROM FactInternetSales F\nINNER JOIN DimCustomer C ON F.CustomerKey = C.CustomerKey\nGROUP BY C.FirstName, C.LastName\nORDER BY DepenseTotale DESC",
+      "statut": "succes",
+      "nb_lignes": 10,
+      "tentatives": 1,
+      "id": 9,
+      "categorie": "classement",
+      "question": "Quels sont les 10 clients ayant dépensé le plus ?"
+    },
+    {
+      "sql": "SELECT DPC.EnglishProductCategoryName AS Categorie, SUM(F.OrderQuantity) AS NombreVentes\nFROM FactInternetSales F\nINNER JOIN DimProduct DP ON F.ProductKey = DP.ProductKey\nINNER JOIN DimProductSubcategory DPS ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey\nINNER JOIN DimProductCategory DPC ON DPS.ProductCategoryKey = DPC.ProductCategoryKey\nGROUP BY DPC.EnglishProductCategoryName\nORDER BY NombreVentes DESC",
+      "statut": "succes",
+      "nb_lignes": 3,
+      "tentatives": 1,
+      "id": 10,
+      "categorie": "classement",
+      "question": "Quelle est la catégorie de produit la plus vendue ?"
+    },
+    {
+      "sql": "SELECT SUM(F.SalesAmount) AS CA \nFROM FactInternetSales F \nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey \nWHERE D.CalendarYear = 2013",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 11,
+      "categorie": "temporel",
+      "question": "Quel est le chiffre d'affaires total en 2013 ?"
+    },
+    {
+      "sql": "SELECT D.CalendarYear AS Annee, SUM(F.SalesAmount) AS RevenuTotal\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nGROUP BY D.CalendarYear \nORDER BY D.CalendarYear",
+      "statut": "succes",
+      "nb_lignes": 5,
+      "tentatives": 1,
+      "id": 12,
+      "categorie": "temporel",
+      "question": "Quel est le revenu total par année ?"
+    },
+    {
+      "sql": "SELECT D.CalendarQuarter AS Trimestre, SUM(F.SalesAmount) AS CA\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2013\nGROUP BY D.CalendarQuarter \nORDER BY D.CalendarQuarter",
+      "statut": "succes",
+      "nb_lignes": 4,
+      "tentatives": 1,
+      "id": 13,
+      "categorie": "temporel",
+      "question": "Quel est le chiffre d'affaires par trimestre en 2013 ?"
+    },
+    {
+      "sql": "SELECT COUNT(F.SalesOrderNumber) AS NombreCommandes \nFROM FactInternetSales F \nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey \nWHERE D.CalendarYear = 2012",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 14,
+      "categorie": "temporel",
+      "question": "Combien de commandes ont été passées en 2012 ?"
+    },
+    {
+      "sql": "SELECT TOP 1 D.EnglishMonthName AS Mois, SUM(F.SalesAmount) AS TotalVentes\nFROM FactInternetSales F\nINNER JOIN DimDate D ON F.OrderDateKey = D.DateKey\nWHERE D.CalendarYear = 2013\nGROUP BY D.EnglishMonthName, D.MonthNumberOfYear\nORDER BY TotalVentes DESC",
+      "statut": "succes",
+      "nb_lignes": 1,
+      "tentatives": 1,
+      "id": 15,
+      "categorie": "temporel",
+      "question": "Quel mois a généré le plus de ventes en 2013 ?"
+    },
+    {
+      "sql": "SELECT \n  PC.EnglishProductCategoryName AS Categorie,\n  ST.SalesTerritoryCountry AS Pays,\n  SUM(F.SalesAmount) AS CA\nFROM \n  FactInternetSales F\n  INNER JOIN DimProduct P ON F.ProductKey = P.ProductKey\n  INNER JOIN DimProductSubcategory PS ON P.ProductSubcategoryKey = PS.ProductSubcategoryKey\n  INNER JOIN DimProductCategory PC ON PS.ProductCategoryKey = PC.ProductCategoryKey\n  INNER JOIN DimSalesTerritory ST ON F.SalesTerritoryKey = ST.SalesTerritoryKey\nGROUP BY \n  PC.EnglishProductCategoryName, \n  ST.SalesTerritoryCountry\nORDER BY \n  PC.EnglishProductCategoryName, \n  ST.SalesTerritoryCountry",
+      "statut": "succes",
+      "nb_lignes": 18,
+      "tentatives": 1,
+      "id": 16,
+      "categorie": "complexe",
+      "question": "Quel est le chiffre d'affaires par catégorie de produit et par pays ?"
+    },
+    {
+      "sql": "SELECT DC.FirstName AS Prenom, DC.LastName AS Nom, SUM(F.SalesAmount) AS TotalDepense\nFROM FactInternetSales F\nINNER JOIN DimCustomer DC ON F.CustomerKey = DC.CustomerKey\nGROUP BY DC.FirstName, DC.LastName\nHAVING SUM(F.SalesAmount) > 5000\nORDER BY TotalDepense DESC",
+      "statut": "succes",
+      "nb_lignes": 1740,
+      "tentatives": 1,
+      "id": 17,
+      "categorie": "complexe",
+      "question": "Quels sont les clients ayant dépensé plus de 5000 au total ?"
+    },
+    {
+      "sql": "SELECT \n  DPC.EnglishProductCategoryName AS CategorieProduit, \n  AVG((F.SalesAmount - F.TotalProductCost) / F.SalesAmount) * 100 AS MargeMoyenne\nFROM \n  FactInternetSales F\nINNER JOIN \n  DimProduct DP ON F.ProductKey = DP.ProductKey\nINNER JOIN \n  DimProductSubcategory DPS ON DP.ProductSubcategoryKey = DPS.ProductSubcategoryKey\nINNER JOIN \n  DimProductCategory DPC ON DPS.ProductCategoryKey = DPC.ProductCategoryKey\nGROUP BY \n  DPC.EnglishProductCategoryName\nORDER BY \n  DPC.EnglishProductCategoryName",
+      "statut": "succes",
+      "nb_lignes": 3,
+      "tentatives": 1,
+      "id": 18,
+      "categorie": "complexe",
+      "question": "Quelle est la marge moyenne par catégorie de produit ?"
+    },
+    {
+      "sql": "SELECT ST.SalesTerritoryCountry AS Pays, AVG(F.SalesAmount) AS RevenuMoyenParCommande\nFROM FactInternetSales F\nINNER JOIN DimSalesTerritory ST ON F.SalesTerritoryKey = ST.SalesTerritoryKey\nGROUP BY ST.SalesTerritoryCountry\nORDER BY ST.SalesTerritoryCountry",
+      "statut": "succes",
+      "nb_lignes": 6,
+      "tentatives": 1,
+      "id": 19,
+      "categorie": "complexe",
+      "question": "Quel est le revenu moyen par commande, par pays ?"
+    },
+    {
+      "sql": "SELECT P.EnglishProductName AS NomProduit\nFROM DimProduct P\nLEFT JOIN FactInternetSales F ON P.ProductKey = F.ProductKey\nWHERE F.ProductKey IS NULL",
+      "statut": "succes",
+      "nb_lignes": 448,
+      "tentatives": 1,
+      "id": 20,
+      "categorie": "complexe",
+      "question": "Quels produits n'ont jamais été vendus ?"
+    }
+  ]
+}
